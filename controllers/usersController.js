@@ -27,9 +27,7 @@ module.exports = {
 
     console.log(req.body.email)
     db.User.findOne({ where: { email: req.body.email } }).then(u => {
-      console.log(`u ${u}`)
       if (!u) res.status(400).send({ msg: 'Invalid Email or Password' });
-      // console.log('u.password ' + u.password)
       bcrypt.compare(req.body.password, u.password, function(err, bRes) {
         if (!bRes) res.status(400).send({ msg: 'Invalid Email or Password' });
         var token = jwt.sign({ email: u.email }, 'shhhhh');
