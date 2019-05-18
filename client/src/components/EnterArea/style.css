@@ -1,0 +1,10 @@
+.enterArea {
+    background-color: Green;
+    height: 400px;
+}
+
+.sketchArea {
+    height: 60%;
+    width: 100%;
+    background-color: green;
+}

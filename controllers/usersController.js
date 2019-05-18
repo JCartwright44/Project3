@@ -18,29 +18,31 @@ module.exports = {
   },
   login: function(req, res) {
     // Mongo logic
-      // db.User
+      db.User
         // console.log(req.query)
         // console.log(req.body.email)
-        // .findOne(req.body.email)
+        // .findOne({ where: { email: req.body.email } })
         // .then(console.log(`found ${req.body.password}`))
         // .catch(err => res.status(422).json(err));
 
-    console.log(req.body.email)
-    db.User.findOne({ where: { email: req.body.email } }).then(u => {
+
+    db.User.where( { email: req.body.email } ).findOne((err, u) => {
+
       if (!u) res.status(400).send({ msg: 'Invalid Email or Password' });
       bcrypt.compare(req.body.password, u.password, function(err, bRes) {
         if (!bRes) res.status(400).send({ msg: 'Invalid Email or Password' });
         var token = jwt.sign({ email: u.email }, 'shhhhh');
         res.json({ email: u.email, token: token });
+        console.log( `signed in`)
       });
     });
   },
-  create: function(req, res) {
-    db.Book
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // create: function(req, res) {
+  //   db.Book
+  //     .create(req.body)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   signup: function(req, res) {
     // Mongo logic
     // console.log(req.body)
@@ -56,13 +58,20 @@ module.exports = {
     // if it is invalid
     // return res.status(400).send({msg: "Invalid Email or Password"})
 
-    db.User.findOne({ where: { email: req.body.email } }).then(u => {
-      if (u) res.status(400).send({ msg: 'Invalid Email or Password' });
-      bcrypt.genSalt(saltRounds, function(err, salt) {
-        bcrypt.hash(req.body.password, salt, function(err, hash) {
+    db.User.findOne({ 
+      where: { email: req.body.email } })
+      .then(u => {
+        if (u) res.status(400).send({ msg: 'Invalid Email or Password' });
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+          bcrypt.hash(req.body.password, salt, function(err, hash) {
           db.User.create({
             email: req.body.email,
             password: hash,
+            counting: 1,
+            addition: 1, 
+            subtraction: 1,
+            multiplication: 1, 
+            division: 1
           }).then(function(user) {
             var token = jwt.sign({ email: user.email }, 'shhhhh');
             res.json({ email: user.email, token: token });
