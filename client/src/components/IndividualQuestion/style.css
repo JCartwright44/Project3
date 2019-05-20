@@ -13,5 +13,21 @@ h5 {
 
 #input {
     margin-top: 5px;
-    width: 49%;
+    width: 30%;
+}
+
+#num1 {
+    width: 10%;
+}
+
+#sign {
+    width: 10%;
+}
+
+#equals {
+    width: 10%;
+}
+
+#num2 {
+    width: 10%;
 }

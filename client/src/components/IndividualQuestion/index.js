@@ -1,4 +1,5 @@
 import React from "react";
+import EnterBtn, { handleClick } from "../EnterBtn"
 import "./style.css";
 
 class IndividualQuestion extends React.Component {
@@ -15,7 +16,7 @@ class IndividualQuestion extends React.Component {
             )
     }
 
- answerCorrect = (e) => {
+    handleClick = (e) => {
         e.preventDefault();
         const answer = Number(this.state.value);
         const num1 = Number(this.state.num1);
@@ -37,13 +38,13 @@ class IndividualQuestion extends React.Component {
       return (
         <div className="individualQuestion"
         >
-        <h5 name="num1">{this.state.num1}</h5>
-        <h5 name="sign"> + </h5>
-        <h5 name="num2">{this.state.num2}</h5>
-        <h5 name="equals">=</h5>
+        <h5 name="num1" id='num1'>{this.state.num1}</h5>
+        <h5 name="sign" id='sign'> + </h5>
+        <h5 name="num2" id='num2'>{this.state.num2}</h5>
+        <h5 name="equals" id='equals'>=</h5>
 
         <input  id="input" onChange={this.handleInput} type="text" className="form-control" name="input" value={this.state.value} />
-        <button onClick={this.answerCorrect}>Submit</button>
+        <button id='button' onClick={this.handleClick}>Submit</button>
     
         </div>
       );

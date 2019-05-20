@@ -1,14 +1,20 @@
 import React from "react";
 import "./style.css";
+import EnterBtn from "../EnterBtn";
+import SketchPad from "../SketchPad"
 
-// The ...props means, spread all of the passed props onto this element
-// That way we don't have to define them all individually
-function EnterBtn(props) {
+function EnterArea({ children }) {
   return (
-    <span className="enter-btn" {...props} role="button" tabIndex="0">
-      ✗
-    </span>
+    <div className="enterArea container"
+    >
+    <div className="row">
+        <SketchPad />
+    </div>
+    <div className="row">
+        <EnterBtn />
+    </div>
+    </div>
   );
 }
 
-export default EnterBtn;
+export default EnterArea;

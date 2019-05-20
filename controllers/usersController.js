@@ -17,15 +17,6 @@ module.exports = {
     });
   },
   login: function(req, res) {
-    // Mongo logic
-      db.User
-        // console.log(req.query)
-        // console.log(req.body.email)
-        // .findOne({ where: { email: req.body.email } })
-        // .then(console.log(`found ${req.body.password}`))
-        // .catch(err => res.status(422).json(err));
-
-
     db.User.where( { email: req.body.email } ).findOne((err, u) => {
 
       if (!u) res.status(400).send({ msg: 'Invalid Email or Password' });
@@ -37,26 +28,8 @@ module.exports = {
       });
     });
   },
-  // create: function(req, res) {
-  //   db.Book
-  //     .create(req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+
   signup: function(req, res) {
-    // Mongo logic
-    // console.log(req.body)
-      // db.User
-      // .create(req.body)
-      // .then(dbModel => res.json(dbModel))
-      // .catch(err => res.status(422).json(err));
-
-
-
-
-    // validateEmailWithRegex(req.body.email)
-    // if it is invalid
-    // return res.status(400).send({msg: "Invalid Email or Password"})
 
     db.User.findOne({ 
       where: { email: req.body.email } })
