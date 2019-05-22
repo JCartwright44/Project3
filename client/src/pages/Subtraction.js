@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
 // import Jumbotron from "../components/Jumbotron";
+import SubWorkArea from "../components/Subtraction/SubWorkArea"
 // import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -14,6 +15,7 @@ class Subtraction extends Component {
             <Row>
               <Col size="md-9">
                 <h1>Subtraction - Work Area</h1>
+                <SubWorkArea />
               </Col>
               <Col size="md-3">
                 <h1>Enter Area</h1>

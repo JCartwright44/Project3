@@ -1,0 +1,33 @@
+.individualQuestion {
+    height: 80px;
+    width: 80%;
+    background-color: red;
+    margin: 30px;
+    overflow: auto;
+}
+
+h5 {
+    width: 49%;
+    float: left;
+}
+
+#input {
+    margin-top: 5px;
+    width: 30%;
+}
+
+#num1 {
+    width: 10%;
+}
+
+#sign {
+    width: 10%;
+}
+
+#equals {
+    width: 10%;
+}
+
+#num2 {
+    width: 10%;
+}

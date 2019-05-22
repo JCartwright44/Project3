@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import IndividualQuestion from "../IndividualQuestion";
+import IndividualQuestion from "../AddIndividualQuestion";
 
 function WorkArea({ children }) {
 

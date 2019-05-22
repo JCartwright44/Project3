@@ -11,9 +11,16 @@ import "./style.css";
 //     </div>
 class EnterBtn extends React.Component {
   // }
+  // render() {
+  //   return <button onClick={this.handleClick}>Submit</button>;
+  // }
   render() {
-    return <button onClick={this.handleClick}>Submit</button>;
-  }
+    return (
+      <button onClick={this.props.onClick}>
+        Click This
+      </button>
+    );
+  };
 }
 // });
 
