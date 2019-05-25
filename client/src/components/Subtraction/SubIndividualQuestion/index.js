@@ -1,5 +1,5 @@
 import React from "react";
-import EnterBtn, { handleClick } from "../../EnterBtn"
+// import EnterBtn, { handleClick } from "../../EnterBtn"
 import "./style.css";
 
 
@@ -8,8 +8,7 @@ class IndividualQuestion extends React.Component {
     state= {
         value: "",
         num1: "",
-        num2: "",
-        foo: false
+        num2: ""
     }
 
 componentWillMount() {

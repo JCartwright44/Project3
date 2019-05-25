@@ -33,6 +33,9 @@ login: function(data) {
 validateToken: function(t) {
   return axios.post('/api/users/validate', { token: t });
 },
+checkAddLevel: function(data) {
+  return axios.get('/api/levels/addition', data)
+},
 
 
 

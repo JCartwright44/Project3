@@ -1,56 +1,81 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import UserContext from "../utils/UserContext"
 import API from '../utils/API';
-import { Link } from 'react-router-dom';
-import RandomHomeComponent from '../components/RandomHomeComponent';
+// import { Link } from 'react-router-dom';
+// import RandomHomeComponent from '../components/RandomHomeComponent';
 
-class Login extends Component {
+class Login extends React.Component {
   state = {
-    email: '',
+    username: '',
     password: '',
-  };
-
-  componentDidMount() {
-    const token = localStorage.getItem('current_user_token');
-
-    if (token) {
-      API.validateToken(token)
-        .then(() => this.props.history.push('/'))
-        .catch(() => localStorage.removeItem('current_user_token'));
-    }
-  }
-
-  onSubmit = () => {
-    API.login(this.state)
-      .then(res => localStorage.setItem('current_user_token', res.data.token))
-      .catch(err => console.log(err));
+    error: null,
+    currentUser: null
   };
 
   onChange = key => e => this.setState({ [key]: e.target.value });
 
+  onSubmit = (onLogin) => {
+    const { history } = this.props;
+    const { username, password } = this.state
+    API.login({ username, password })
+      // .then(res => localStorage.setItem('current_user_token', res.data.token))
+      .then(res => {
+        onLogin(res.data)
+        history.push("/");
+      })
+      .catch(err => {
+        this.setState({
+          error: "Username or Password not matching. Please try again"
+        })
+      })
+  };
+
+
+
   render() {
+    const { username, password, error } = this.state;
+
     return (
+      <UserContext.Consumer>
+      {({onLogin}) => (
       <div>
-        <h1>Login</h1>
-        <input
-          type="text"
-          value={this.state.email}
-          label="email"
-          onChange={this.onChange('email')}
-        />
-        <input
-          type="password"
-          value={this.state.password}
-          label="password"
-          onChange={this.onChange('password')}
-        />
-        <button
-          onClick={this.onSubmit}
-          disabled={!Boolean(this.state.email && this.state.password)}
-        >
-          Login
-        </button>
+      <h1>Login</h1>
+      <div>
+      <label>Username </label>
+      <input
+        autoComplete="off"
+        type="text"
+        value={this.state.username}
+        label="username"
+        onChange={this.onChange('username')}
+      />
       </div>
+      <div>
+      <label>Password </label>
+      <input
+        type="password"
+        value={this.state.password}
+        label="password"
+        onChange={this.onChange('password')}
+      />
+      </div>
+      {this.state.error ? (
+        <span className="alert">{this.state.error}</span>
+      ): null }
+      <div>
+      <button
+        className="btn btn-primary"
+        onClick={() => this.onSubmit(onLogin)}
+        disabled={!Boolean(this.state.username && this.state.password)}
+      >
+        Login
+      </button>
+      </div>
+    </div>
+
+        )}
+
+      </UserContext.Consumer>
     );
   }
 }

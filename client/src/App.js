@@ -7,17 +7,22 @@ import Subtraction from "./pages/Subtraction";
 import Multiplication from "./pages/Multiplication";
 import Division from "./pages/Division";
 import NoMatch from "./pages/NoMatch";
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Nav from "./components/Nav";
 import NavList from "./components/NavList";
+import {UserProvider} from "./utils/UserContext"
 
-function App() {
+
+
+class App extends React.Component {
+  render() {
   return (
+    <UserProvider>
     <Router>
       <div>
-        <Nav />
+        <Nav/>
         <NavList />
         <Switch>
           <Route exact path="/" component={Dashboard} />
@@ -33,7 +38,9 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </UserProvider>
   );
+  }
 }
 
 export default App;

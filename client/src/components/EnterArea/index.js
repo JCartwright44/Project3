@@ -3,7 +3,7 @@ import "./style.css";
 import EnterBtn from "../EnterBtn";
 import SketchPad from "../SketchPad"
 
-function EnterArea({ children }) {
+function EnterArea({ handleOnClick }) {
   return (
     <div className="enterArea container"
     >
@@ -11,7 +11,7 @@ function EnterArea({ children }) {
         <SketchPad />
     </div>
     <div className="row">
-        <EnterBtn />
+        <EnterBtn handleOnClick={handleOnClick}/>
     </div>
     </div>
   );
