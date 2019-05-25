@@ -24,7 +24,7 @@ class Addition extends React.Component {
     this.setState({
       questions,
       id,
-      // level
+      level
     })
     
     if (level === 1) 
@@ -135,7 +135,7 @@ handleOnClick = (e) => {
                 <EnterArea handleOnClick={this.handleOnClick}/>
               </Col>
             </Row>
-          </Container>
+                      </Container>
         )
 }
 }

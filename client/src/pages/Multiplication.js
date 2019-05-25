@@ -8,7 +8,7 @@ class Multiplication extends React.Component {
   state = {
     id: "",
     questions: [],
-    level: 5
+    level: ""
   }
 
   componentDidMount() {
@@ -17,8 +17,8 @@ class Multiplication extends React.Component {
     // checkLevel() 
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
-    // let level = idt.add;
-    let level = this.state.level;
+    let level = idt.add;
+    // let level = this.state.level;
 
 
     this.setState({
