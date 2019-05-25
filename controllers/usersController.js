@@ -42,7 +42,6 @@ module.exports = {
       const user = {
         username, 
         password: hash,
-        counting: 1,
         addition: 1, 
         subtraction: 1,
         multiplication: 1, 

@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
-  counting: { type: Number},
   addition: { type: Number},
   subtraction: { type: Number},
   multiplication: { type: Number},

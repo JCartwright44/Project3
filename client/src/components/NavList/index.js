@@ -6,9 +6,6 @@ function NavList() {
       <a className="navbar-brand" href="../../dashboard">
         Dashboard
       </a>
-      <a className="navbar-brand" href="../../counting">
-        Counting
-      </a>
       <a className="navbar-brand" href="../../addition">
         Addition
       </a>

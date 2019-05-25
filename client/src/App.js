@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Counting from "./pages/Counting";
 import Addition from "./pages/Addition";
 import Subtraction from "./pages/Subtraction";
 import Multiplication from "./pages/Multiplication";
@@ -29,7 +28,6 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/counting" component={Counting} />
           <Route exact path="/addition" component={Addition} />
           <Route exact path="/subtraction" component={Subtraction} />
           <Route exact path="/multiplication" component={Multiplication} />

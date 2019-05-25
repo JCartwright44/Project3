@@ -1,16 +1,8 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
-// import Jumbotron from "../components/Jumbotron";
 import WorkArea from "../components/Addition/AddWorkArea"
 import EnterArea from "../components/EnterArea"
-// import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import API from "../utils/API";
 // import API from "../utils/API";
-// import { List, ListItem } from "../components/List";
-// import { Input, TextArea, FormBtn } from "../components/Form";
-
 
 class Addition extends React.Component {
   state = {
@@ -23,20 +15,6 @@ class Addition extends React.Component {
     const len = 10;
     const questions = [];
     // checkLevel() 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
-    
-    
-
-
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
     let level = idt.add;
@@ -48,11 +26,117 @@ class Addition extends React.Component {
       level
     })
     
+    if (level === 1) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 2) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 3) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 4) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 5) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 6) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 7) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 8) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 9) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
+    if (level === 10) 
+    for(let i=0; i< len; i++) {
+      const num1 = Math.floor(Math.random() * 5)
+      const num2 = Math.floor(Math.random() * 5)
+      questions.push({
+        num1,
+        num2,
+        correctAnswer: num1 + num2,
+        userInput: null
+      })
+    }
   }
-
-
-
-
 
 onChange = (index, value) => {
 const updatedQuestion = {
