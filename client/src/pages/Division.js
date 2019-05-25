@@ -18,6 +18,7 @@ class Division extends React.Component {
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
     let level = idt.add;
+    // let level = this.state.level
 
 
     this.setState({
@@ -28,114 +29,75 @@ class Division extends React.Component {
     
     if (level === 1) 
     for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
+      const first = Math.floor(Math.random() * 5 + 1);
+      const second = Math.floor(Math.random() * first + 1);
+      const third = first * second;
+      let num1 = third;
+      let num2 = first;
       questions.push({
         num1,
         num2,
-        correctAnswer: num1 + num2,
+        correctAnswer: second,
         userInput: null
       })
     }
     if (level === 2) 
     for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
+      const first = Math.floor(Math.random() * 10 + 1);
+      const second = Math.floor(Math.random() * first + 1);
+      const third = first * second;
+      let num1 = third;
+      let num2 = first;
       questions.push({
         num1,
         num2,
-        correctAnswer: num1 + num2,
+        correctAnswer: second,
         userInput: null
       })
     }
     if (level === 3) 
     for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
+      const first = Math.floor(Math.random() * 8 + 8);
+      const second = Math.floor(Math.random() * first + 1);
+      const third = first * second;
+      let num1 = third;
+      let num2 = first;
       questions.push({
         num1,
         num2,
-        correctAnswer: num1 + num2,
+        correctAnswer: second,
         userInput: null
       })
     }
     if (level === 4) 
     for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
+      const first = Math.floor(Math.random() * 15 + 11);
+      const second = Math.floor(Math.random() * first + 1);
+      const third = first * second;
+      let num1 = third;
+      let num2 = first;
       questions.push({
         num1,
         num2,
-        correctAnswer: num1 + num2,
+        correctAnswer: second,
         userInput: null
       })
     }
     if (level === 5) 
     for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
+      const first = Math.floor(Math.random() * 35 + 16);
+      const second = Math.floor(Math.random() * first + 1);
+      const third = first * second;
+      let num1 = third;
+      let num2 = first;
       questions.push({
         num1,
         num2,
-        correctAnswer: num1 + num2,
+        correctAnswer: second,
         userInput: null
       })
     }
-    if (level === 6) 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
-    if (level === 7) 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
-    if (level === 8) 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
-    if (level === 9) 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
-    if (level === 10) 
-    for(let i=0; i< len; i++) {
-      const num1 = Math.floor(Math.random() * 5)
-      const num2 = Math.floor(Math.random() * 5)
-      questions.push({
-        num1,
-        num2,
-        correctAnswer: num1 + num2,
-        userInput: null
-      })
-    }
+
   }
 
 onChange = (index, value) => {

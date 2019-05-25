@@ -18,7 +18,7 @@ class MultIndividualQuestion extends React.Component {
         <div className="individualQuestion"
         >
         <h5 name="num1" id='num1'>{this.props.num1}</h5>
-        <h5 name="sign" id='sign'> + </h5>
+        <h5 name="sign" id='sign'> * </h5>
         <h5 name="num2" id='num2'>{this.props.num2}</h5>
         <h5 name="equals" id='equals'>=</h5>
 
