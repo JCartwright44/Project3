@@ -2,3 +2,19 @@
     background-color: purple;
     height: 10%;
 }
+
+.button {
+    height: 75px;
+    width: 90%;
+    margin: auto;
+    margin-top: 3px;
+    border-radius: 25px;
+    border: 2px solid #00BCD4;
+    padding: 15px; 
+    position: absolute;
+    color: #00BCD4;
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #FFECB3
+
+}

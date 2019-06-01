@@ -15,7 +15,7 @@ class MultIndividualQuestion extends React.Component {
     render() {
       return (
           <div>
-        <div className="individualQuestion"
+        <div className="multiindividualQuestion"
         >
         <h5 name="num1" id='num1'>{this.props.num1}</h5>
         <h5 name="sign" id='sign'> * </h5>

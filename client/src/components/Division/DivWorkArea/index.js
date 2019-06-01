@@ -9,12 +9,12 @@ function DivWorkArea({ questions, onChange }) {
 
   console.log(questions);
   return (
-    <div className="workArea container"
+    <div className="divworkArea container"
     >
     <div className="row">
 
     {questions.map((question, index) => (
-      <div className="col-sm-6">
+      <div className="col-sm-6 question">
         <IndividualQuestion index={index} num1={question.num1} num2={question.num2} onChange={onChange} />
       </div>
     ))}

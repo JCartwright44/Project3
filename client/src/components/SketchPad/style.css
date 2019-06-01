@@ -1,5 +1,15 @@
-#sketchArea {
-    background-color: green;
-    height: 400px;
-    width: 100%
+
+#boxSize {
+    height: 200px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0px;
+    margin-top: 30%;
+    margin-bottom: 2%;
+    overflow: auto;
+    border-radius: 25px;
+    border: 2px solid #00BCD4;
+    padding: 15px; 
+
 }

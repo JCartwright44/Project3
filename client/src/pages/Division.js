@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import WorkArea from "../components/Division/DivWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
-// import API from "../utils/API";
+import './style.css'
+import API from "../utils/API";
+import axios from "axios";
 
 class Division extends React.Component {
   state = {
@@ -17,7 +19,7 @@ class Division extends React.Component {
     // checkLevel() 
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
-    let level = idt.add;
+    let level = idt.div;
     // let level = this.state.level
 
 
@@ -120,6 +122,12 @@ handleOnClick = (e) => {
   const answerKey = [];
   const len = 10;
   let total = 0;
+  let { history } = this.props;
+  let id = this.state.id;
+  let type = 'division';
+  let level = this.state.level;
+  let idt = JSON.parse(sessionStorage.user)
+  idt.div = Number(level) + 1;
   for (let i = 0; i < len; i++) {
     if (this.state.questions[i].correctAnswer === this.state.questions[i].userInput) {
       answerKey.push(1)
@@ -132,6 +140,23 @@ handleOnClick = (e) => {
     }
     if (total === 10) {
       alert('all correct') 
+      API.update( id, type, level )
+      .then(res => {
+        this.setState({
+          level: res.data.division
+        })
+
+        // console.log(res.data.addition)
+
+
+        sessionStorage.setItem('user', JSON.stringify(idt))
+        history.push("/dashboard")
+      })
+
+
+
+
+
     } else {
       alert('try again!')
     }
@@ -142,7 +167,7 @@ handleOnClick = (e) => {
             <Container fluid>
             <Row>
               <Col size="md-9">
-                <h1>Division - Work Area {this.state.level}</h1>
+                <h1>Division - Level {this.state.level}</h1>
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
               <Col size="md-3">

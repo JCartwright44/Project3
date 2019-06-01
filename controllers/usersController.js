@@ -54,4 +54,25 @@ module.exports = {
         .catch(err => res.status(422).json(err))
     });
   },
+
+  update: function(req, res) {
+    let { id, type, level } = req.body;
+    level = Number(level) + 1
+    db.User
+      .findOneAndUpdate({"_id": id}, {$set: {[type]: level}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
+  },
+
+  get: function(req, res) {
+    db.User.find({})
+      .then(dbModel => {
+        const add = dbModel.addition;
+        const sub = dbModel.subtraction;
+        const mult = dbModel.multiplication;
+        const div = dbModel.division;
+      })
+      return res.json({add, sub, mult, div})
+  }
 }; 
+

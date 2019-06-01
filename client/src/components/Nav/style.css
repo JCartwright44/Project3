@@ -1,3 +1,21 @@
 .nav-item {
-    color: black
+    color: white
+}
+
+a {
+    color: white;
+}
+
+.topper {
+    background-color: #FFA000;
+    padding: 0px;
+}
+
+.welcome {
+    margin-top: 4%;
+    float: right;
+}
+
+.navbar-right {
+    align-content: right
 }

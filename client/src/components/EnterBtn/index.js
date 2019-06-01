@@ -5,8 +5,8 @@ import "./style.css";
 class EnterBtn extends React.Component {
   render() {
     return (
-      <button onClick={this.props.handleOnClick}>
-        Click This
+      <button className='button' onClick={this.props.handleOnClick}>
+        Submit
       </button>
     );
   };

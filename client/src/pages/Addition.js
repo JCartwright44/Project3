@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import WorkArea from "../components/Addition/AddWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
-// import API from "../utils/API";
+import './style.css'
+import API from "../utils/API";
+import axios from "axios";
+
 
 class Addition extends React.Component {
   state = {
@@ -100,11 +103,31 @@ const questions = [
 this.setState({questions})
 }
 
+// update = (onUpdate) => {
+//   const { history } = this.props;
+//   let id = this.state.id;
+//   let type = 'addition';
+//   let level = this.state.level;
+//   API.update( {id, type, level} )
+//   .then(res => {
+//     onUpdate(res.data)
+//     history.push("/dashboard");
+//   })
+
+// }
+
 handleOnClick = (e) => {
   // compare the correctAnswer to userInput for each question in the array
   const answerKey = [];
   const len = 10;
   let total = 0;
+  let { history } = this.props;
+  let id = this.state.id;
+  let type = 'addition';
+  let level = this.state.level;
+  let idt = JSON.parse(sessionStorage.user)
+  idt.add = Number(level) + 1;
+  console.log(idt)
   for (let i = 0; i < len; i++) {
     if (this.state.questions[i].correctAnswer === this.state.questions[i].userInput) {
       answerKey.push(1)
@@ -117,6 +140,20 @@ handleOnClick = (e) => {
     }
     if (total === 10) {
       alert('all correct') 
+      API.update( id, type, level )
+      .then(res => {
+        this.setState({
+          level: res.data.addition
+        })
+
+        // console.log(res.data.addition)
+
+
+        sessionStorage.setItem('user', JSON.stringify(idt))
+        history.push("/dashboard")
+      })
+
+
     } else {
       alert('try again!')
     }
@@ -126,12 +163,11 @@ handleOnClick = (e) => {
         return (
             <Container fluid>
             <Row>
-              <Col size="md-9">
-                <h1>Addition - Work Area {this.state.level}</h1>
+              <Col id='contain' size="md-9">
+                <h1>Addition - Level {this.state.level}</h1>
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
-              <Col size="md-3">
-                <h1>Enter Area </h1>
+              <Col className='contain' size="md-3">
                 <EnterArea handleOnClick={this.handleOnClick}/>
               </Col>
             </Row>

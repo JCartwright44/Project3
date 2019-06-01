@@ -1,8 +1,15 @@
 import React from "react";
+import UserContext from "../../utils/UserContext";
+import "./style.css";
 
 function NavList() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <UserContext.Consumer>
+
+      {({ user }) => (
+    <nav className="navbar navbar-expand-lg bottom">
+    { user ? (
+      <div>
       <a className="navbar-brand" href="../../dashboard">
         Dashboard
       </a>
@@ -17,8 +24,16 @@ function NavList() {
       </a>
       <a className="navbar-brand" href="../../division">
         Division
-      </a>
+    </a> 
+    </div>
+    ) : (
+
+      <h3>Please log in to continue</h3>
+  
+      )}
     </nav>
+      )}
+    </UserContext.Consumer>
   );
 }
 

@@ -10,17 +10,22 @@ function Nav() {
     <UserContext.Consumer>
 
       {({ user, onLogout }) => (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg topper">
           <a className="navbar-brand" href="/">
-            NaNi Math
+            Math Practice App
           </a>
           { user ? (
-            <div>Welcome, {user.username}
+          <div className="nav navbar-nav navbar-right">
+          <li className="nav-item navbar-right welcome">
+            Welcome, {user.username}
+            </li>
+            <li className="nav nav-item navbar-right">
             <Link className="nav-link" onClick={onLogout} to="/login">Logout</Link>
+            </li>
             </div>
           ) : (
           <div className="navbar-nav">
-            <li className="nav-item">
+            <li className="nav-item ">
             <Link className="nav-link" to="/signup">Sign Up </Link>
             </li>
             <li className="nav-item">

@@ -9,4 +9,7 @@ router.route('/login')
 // router.route('/validate').post(usersController.validateToken);
 router.route('/signup').post(usersController.signup);
 
+router.route('/update')
+    .post(usersController.update);
+
 module.exports = router;
