@@ -36,3 +36,23 @@ body {
 .full-height {
     height: 100%
 }
+
+.container-fluid {
+    height: 100%
+}
+
+.row {
+    height: 100%
+}
+
+.col-md-3 {
+    height: 100%
+}
+
+.btn-info {
+    color: white
+}
+
+.card-title {
+    font-size: 32px;
+}

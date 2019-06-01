@@ -7,10 +7,10 @@ function EnterArea({ handleOnClick }) {
   return (
     <div className="enterArea container"
     >
-    <div className="row">
+    <div className="row top">
         <SketchPad />
     </div>
-    <div className="row">
+    <div className="row bottomEnter">
         <EnterBtn handleOnClick={handleOnClick}/>
     </div>
     </div>

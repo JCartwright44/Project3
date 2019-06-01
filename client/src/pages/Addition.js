@@ -165,7 +165,7 @@ handleOnClick = (e) => {
             <span> Modal content </span>
           </Modal>
         )
-        // history.push("/dashboard")
+        history.push("/dashboard")
       })
 
 

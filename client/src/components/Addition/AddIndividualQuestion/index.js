@@ -13,7 +13,6 @@ class IndividualQuestion extends React.Component {
 
     render() {
       return (
-          <div>
         <div className="addindividualQuestion"
         >
         <h5 name="num1" id='num1'>{this.props.num1}</h5>
@@ -23,7 +22,6 @@ class IndividualQuestion extends React.Component {
 
         <input  id="input" onChange={this.handleInput} type="number" className="form-control" name="input" value={this.props.userInput} />
    
-        </div>
         </div>
       );
     }
