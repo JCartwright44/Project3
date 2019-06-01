@@ -4,11 +4,12 @@ import "./style.css";
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
 class SketchPad extends React.Component{
+  state = {
+    quote: ""
+  }
 
 
-
-
-render() {
+componentDidMount() {
   const quotes = [
     "Don’t let what you can’t do stop you from doing what you can do. – John Wooden",
     "We all can dance when we find music we love. – Giles Andreae",
@@ -34,10 +35,17 @@ render() {
 
 let i = Math.floor((Math.random() * 20));
 
-let quote = quotes[i];
+this.setState ({
+  quote: quotes[i]
+})
+}
+
+
+render() {
+
 
   return (
-    <h5 id="boxSize">{quote}</h5>
+    <h5 id="boxSize">{this.state.quote}</h5>
   )
 }
 }

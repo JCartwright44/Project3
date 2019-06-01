@@ -11,7 +11,10 @@ class Addition extends React.Component {
   state = {
     id: "",
     questions: [],
-    level: ""
+    level: "",
+    pass: "",
+    fail: ""
+
   }
 
   componentDidMount() {
@@ -160,7 +163,22 @@ handleOnClick = (e) => {
 }
 
     render() {
+      if (this.state.pass === "pass"){
+            return (
+              <Container fluid>
+                <div>
+                  <h1>
+                    Congrats, you got them all right!
+                  </h1>
+                  <button className='button' onClick={this.props.OnClick}>
+                    Back to Dashboard
+                  </button>
+                </div>
+              </Container>
+            )
+      }
         return (
+
             <Container fluid>
             <Row>
               <Col id='contain' size="md-9">

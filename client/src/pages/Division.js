@@ -171,7 +171,7 @@ handleOnClick = (e) => {
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
               <Col size="md-3">
-                <h1>Enter Area </h1>
+                <h1> </h1>
                 <EnterArea handleOnClick={this.handleOnClick}/>
               </Col>
             </Row>
