@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import WorkArea from "../components/Addition/AddWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
 import './style.css'
 import API from "../utils/API";
-import axios from "axios";
 
 
 class Addition extends React.Component {
@@ -20,10 +19,8 @@ class Addition extends React.Component {
   componentDidMount() {
     const len = 10;
     const questions = [];
-    // checkLevel() 
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
-    // let level = this.state.level;
     let level = idt.add;
 
 
@@ -149,9 +146,6 @@ handleOnClick = (e) => {
           level: res.data.addition
         })
 
-        // console.log(res.data.addition)
-
-
         sessionStorage.setItem('user', JSON.stringify(idt))
         history.push("/dashboard")
       })
@@ -179,7 +173,7 @@ handleOnClick = (e) => {
       }
         return (
 
-            <Container fluid>
+            <Container fluid className="full-height">
             <Row>
               <Col id='contain' size="md-9">
                 <h1>Addition - Level {this.state.level}</h1>

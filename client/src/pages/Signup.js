@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import API from '../utils/API';
-// import { Redirect } from 'react-router-dom';
 
 class Signup extends React.Component {
   state = {
@@ -9,21 +7,10 @@ class Signup extends React.Component {
     password: '',
   };
 
-  // componentDidMount() {
-  //   const token = localStorage.getItem('current_user_token');
-
-    // if (token) {
-    //   API.validateToken(token)
-    //     .then(() => this.props.history.push('/'))
-    //     .catch(() => localStorage.removeItem('current_user_token'));
-    // }
-  // }
-
   onSubmit = () => {
     const { history } = this.props;
     API.signup(this.state)
       .then(res => {
-        // localStorage.setItem('current_user_token', res.data.token)
         alert("User created!");
         history.push("/");
       })

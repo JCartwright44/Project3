@@ -6,12 +6,12 @@ import Subtraction from "./pages/Subtraction";
 import Multiplication from "./pages/Multiplication";
 import Division from "./pages/Division";
 import NoMatch from "./pages/NoMatch";
-// import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Nav from "./components/Nav";
 import NavList from "./components/NavList";
 import {UserProvider} from "./utils/UserContext"
+import './pages/style.css'
 
 
 
@@ -20,7 +20,7 @@ class App extends React.Component {
   return (
     <UserProvider>
     <Router>
-      <div>
+      <div className='full-height'>
         <Nav/>
         <NavList />
         <Switch>

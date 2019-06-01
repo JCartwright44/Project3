@@ -1,13 +1,7 @@
-import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
-// import Jumbotron from "../components/Jumbotron";
-// import API from "../utils/API";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import EnterArea from "./../components/EnterArea"
 import './style.css';
-// import { List, ListItem } from "../components/List";
-// import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Dashboard extends React.Component {
   state = {

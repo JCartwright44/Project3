@@ -1,5 +1,4 @@
 import React from "react";
-// import EnterBtn, { handleClick } from "../../EnterBtn"
 import "./style.css";
 
 class IndividualQuestion extends React.Component {

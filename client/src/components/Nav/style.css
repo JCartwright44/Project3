@@ -19,3 +19,11 @@ a {
 .navbar-right {
     align-content: right
 }
+
+#logout {
+    color: #FFC107;
+}
+
+#title {
+    margin-left: 1%
+}

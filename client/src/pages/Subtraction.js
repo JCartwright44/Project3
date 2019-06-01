@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import WorkArea from "../components/Subtraction/SubWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
 import './style.css'
 import API from "../utils/API";
-import axios from "axios";
 
 class Subtraction extends React.Component {
   state = {
@@ -16,11 +15,9 @@ class Subtraction extends React.Component {
   componentDidMount() {
     const len = 10;
     const questions = [];
-    // checkLevel() 
     let idt = JSON.parse(sessionStorage.user)
     let id = idt.id;
     let level = idt.sub;
-    // let level = this.state.level;
 
 
     this.setState({

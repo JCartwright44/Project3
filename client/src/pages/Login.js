@@ -1,8 +1,6 @@
 import React from 'react';
 import UserContext from "../utils/UserContext"
 import API from '../utils/API';
-// import { Link } from 'react-router-dom';
-// import RandomHomeComponent from '../components/RandomHomeComponent';
 
 class Login extends React.Component {
   state = {
@@ -18,7 +16,6 @@ class Login extends React.Component {
     const { history } = this.props;
     const { username, password } = this.state
     API.login({ username, password })
-      // .then(res => localStorage.setItem('current_user_token', res.data.token))
       .then(res => {
         onLogin(res.data)
         history.push("/dashboard");
@@ -33,7 +30,7 @@ class Login extends React.Component {
 
 
   render() {
-    const { username, password, error } = this.state;
+    // const { username, password, error } = this.state;
 
     return (
       <UserContext.Consumer>
