@@ -109,6 +109,9 @@ handleOnClick = (e) => {
   let level = this.state.level;
   let idt = JSON.parse(sessionStorage.user)
   idt.mult = Number(level) + 1;
+  if (idt.mult > 5) {
+    idt.mult = 5
+  }
   for (let i = 0; i < len; i++) {
     if (this.state.questions[i].correctAnswer === this.state.questions[i].userInput) {
       answerKey.push(1)

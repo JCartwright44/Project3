@@ -1,5 +1,6 @@
 .col-md-9 {
-    background-color: #fcf1cf
+    background-color: #fcf1cf;
+    height: 100%
 }
 
 .col-md-3 {
@@ -24,6 +25,14 @@
     padding: 15px; 
 }
 
-.body {
+body {
+    height: 100%
+}
+
+#id {
+    height: 100%
+}
+
+.full-height {
     height: 100%
 }

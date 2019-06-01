@@ -19,7 +19,6 @@ class Division extends React.Component {
     let id = idt.id;
     let level = idt.div;
 
-
     this.setState({
       questions,
       id,
@@ -125,6 +124,9 @@ handleOnClick = (e) => {
   let level = this.state.level;
   let idt = JSON.parse(sessionStorage.user)
   idt.div = Number(level) + 1;
+  if (idt.div > 5) {
+    idt.div = 5
+  }
   for (let i = 0; i < len; i++) {
     if (this.state.questions[i].correctAnswer === this.state.questions[i].userInput) {
       answerKey.push(1)

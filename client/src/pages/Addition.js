@@ -2,6 +2,7 @@ import React from "react";
 import WorkArea from "../components/Addition/AddWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
+import Modal from 'reactjs-popup';
 import './style.css'
 import API from "../utils/API";
 
@@ -103,6 +104,12 @@ const questions = [
 this.setState({questions})
 }
 
+// PopupExample =  () => (
+//   <Popup trigger={<button> Trigger</button>} position="right center">
+//     <div>Popup content here !!</div>
+//   </Popup>
+// )
+
 // update = (onUpdate) => {
 //   const { history } = this.props;
 //   let id = this.state.id;
@@ -127,6 +134,9 @@ handleOnClick = (e) => {
   let level = this.state.level;
   let idt = JSON.parse(sessionStorage.user)
   idt.add = Number(level) + 1;
+  if (idt.att > 5) {
+    idt.add = 5
+  }
   console.log(idt)
   for (let i = 0; i < len; i++) {
     if (this.state.questions[i].correctAnswer === this.state.questions[i].userInput) {
@@ -139,15 +149,23 @@ handleOnClick = (e) => {
     total = total + answerKey[j];
     }
     if (total === 10) {
-      alert('all correct') 
-      API.update( id, type, level )
+            API.update( id, type, level )
       .then(res => {
         this.setState({
           level: res.data.addition
         })
 
         sessionStorage.setItem('user', JSON.stringify(idt))
-        history.push("/dashboard")
+        const Modal =  () => (
+          <Modal
+            trigger={<button className="button"> Open Modal </button>}
+            modal
+            closeOnDocumentClick
+          >
+            <span> Modal content </span>
+          </Modal>
+        )
+        // history.push("/dashboard")
       })
 
 
@@ -157,26 +175,27 @@ handleOnClick = (e) => {
 }
 
     render() {
-      if (this.state.pass === "pass"){
-            return (
-              <Container fluid>
-                <div>
-                  <h1>
-                    Congrats, you got them all right!
-                  </h1>
-                  <button className='button' onClick={this.props.OnClick}>
-                    Back to Dashboard
-                  </button>
-                </div>
-              </Container>
-            )
-      }
+      // if (this.state.pass === "pass"){
+      //       return (
+      //         <Container fluid>
+      //           <div>
+      //             <h1>
+      //               Congrats, you got them all right!
+      //             </h1>
+      //             <button className='button' onClick={this.props.OnClick}>
+      //               Back to Dashboard
+      //             </button>
+      //           </div>
+      //         </Container>
+      //       )
+      // }
         return (
 
             <Container fluid className="full-height">
             <Row>
               <Col id='contain' size="md-9">
                 <h1>Addition - Level {this.state.level}</h1>
+                <Modal />
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
               <Col className='contain' size="md-3">
