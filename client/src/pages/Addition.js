@@ -2,7 +2,6 @@ import React from "react";
 import WorkArea from "../components/Addition/AddWorkArea"
 import EnterArea from "../components/EnterArea"
 import { Col, Row, Container } from "../components/Grid";
-import Modal from 'reactjs-popup';
 import './style.css'
 import API from "../utils/API";
 
@@ -128,6 +127,8 @@ handleOnClick = (e) => {
   const answerKey = [];
   const len = 10;
   let total = 0;
+  var modal = document.getElementById("myModal");
+  var modal2 = document.getElementById("myModal2");
   let { history } = this.props;
   let id = this.state.id;
   let type = 'addition';
@@ -151,51 +152,48 @@ handleOnClick = (e) => {
     if (total === 10) {
             API.update( id, type, level )
       .then(res => {
+        modal.style.display = "block";
+        // alert('all correct') 
         this.setState({
           level: res.data.addition
         })
 
         sessionStorage.setItem('user', JSON.stringify(idt))
-        const Modal =  () => (
-          <Modal
-            trigger={<button className="button"> Open Modal </button>}
-            modal
-            closeOnDocumentClick
-          >
-            <span> Modal content </span>
-          </Modal>
-        )
-        history.push("/dashboard")
+        setTimeout(function () {
+          history.push("/dashboard")
+        }, 5000)
       })
 
 
     } else {
-      alert('try again!')
+      modal2.style.display = "block";
+      setTimeout(function () {
+        modal2.style.display = "none";
+      }, 5000)
+      // alert('try again!')
     }
 }
 
     render() {
-      // if (this.state.pass === "pass"){
-      //       return (
-      //         <Container fluid>
-      //           <div>
-      //             <h1>
-      //               Congrats, you got them all right!
-      //             </h1>
-      //             <button className='button' onClick={this.props.OnClick}>
-      //               Back to Dashboard
-      //             </button>
-      //           </div>
-      //         </Container>
-      //       )
-      // }
+
         return (
 
             <Container fluid className="full-height">
             <Row>
               <Col id='contain' size="md-9">
                 <h1>Addition - Level {this.state.level}</h1>
-                <Modal />
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <p>Congrats! You passed this level.</p>
+                    <p>You will be taken back to the dashboard.</p>
+                  </div>
+                </div>
+                <div id="myModal2" class="modal">
+                  <div class="modal-content">
+                    <p>Sorry, there are one or more that are incorrect.</p>
+                    <p>Look over your answers carefully. You can do it!</p>
+                  </div>
+                </div>
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
               <Col className='contain' size="md-3">

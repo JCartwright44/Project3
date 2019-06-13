@@ -103,6 +103,8 @@ handleOnClick = (e) => {
   const answerKey = [];
   const len = 10;
   let total = 0;
+  var modal = document.getElementById("myModal");
+  var modal2 = document.getElementById("myModal2");
   let { history } = this.props;
   let id = this.state.id;
   let type = 'multiplication';
@@ -123,7 +125,8 @@ handleOnClick = (e) => {
     total = total + answerKey[j];
     }
     if (total === 10) {
-      alert('all correct') 
+      modal.style.display = "block";
+      // alert('all correct') 
       API.update( id, type, level )
       .then(res => {
         this.setState({
@@ -134,11 +137,17 @@ handleOnClick = (e) => {
 
 
         sessionStorage.setItem('user', JSON.stringify(idt))
-        history.push("/dashboard")
+        setTimeout(function () {
+          history.push("/dashboard")
+        }, 5000)
       })
 
     } else {
-      alert('try again!')
+      modal2.style.display = "block";
+      setTimeout(function () {
+        modal2.style.display = "none";
+      }, 5000)
+      // alert('try again!')
     }
 }
 
@@ -148,6 +157,18 @@ handleOnClick = (e) => {
             <Row>
               <Col size="md-9">
                 <h1>Multiplication - Level {this.state.level}</h1>
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <p>Congrats! You passed this level.</p>
+                    <p>You will be taken back to the dashboard.</p>
+                  </div>
+                </div>
+                <div id="myModal2" class="modal">
+                  <div class="modal-content">
+                    <p>Sorry, there are one or more that are incorrect.</p>
+                    <p>Look over your answers carefully. You can do it!</p>
+                  </div>
+                </div>
                 <WorkArea questions={this.state.questions} onChange={this.onChange}/>
               </Col>
               <Col size="md-3">
