@@ -9,10 +9,14 @@ class Signup extends React.Component {
 
   onSubmit = () => {
     const { history } = this.props;
+    var modal = document.getElementById("myModal");
     API.signup(this.state)
       .then(res => {
-        alert("User created!");
-        history.push("/");
+        modal.style.display = "block";
+        // alert("User created!");
+        setTimeout(function () {
+          history.push("/")
+        }, 5000)
       })
       .catch(err => console.log(err));
   };
@@ -23,6 +27,11 @@ class Signup extends React.Component {
     return (
       <div>
         <h1>Sign up</h1>
+        <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <p>User created!</p>
+                  </div>
+                </div>
         <div>
         <label>Username </label>
         <input
